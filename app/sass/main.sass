@@ -1,4 +1,89 @@
 @import "vars"
 
+body
+	font-size: 14px
+	margin: 0
+	font-family: $default-font
+h1, h2, h3
+	margin: 0
+	font-weight: 800
+	font-family: $header-font
+h1
+	font-size: 40px
+	line-height: 44px
+h2
+	font-size: 32px
+h3
+	font-size: 18px
+section
+	width: 100%
+	display: flex
+	justify-content: center
+	padding: 100px 0	
+	.description
+		line-height: 20px
+		margin-top: 8px			
+	&.first
+		background-color: #EFF1F2
+	&.second
+		background-color: #FFFFFF
+	&.portfolio
+		background-color: #25282A
+	&.contacts
+		background-color: #EFF1F2
+.container
+	width: 100%
+	margin: 0 150px
+	max-width: 700px
+	display: flex
+	flex-direction: column
+	align-items: center
+
+a
+	color: $accent
+	transition: all .2s ease
+	&:hover
+		color: $hover
+		text-decoration: none
+	&:active
+		opacity: 0.7
+
+a.button
+	font-size: 18px
+	line-height: 24px
+	font-family: $header-font
+	font-weight: 800
+	letter-spacing: 1px
+	text-decoration: none
+	text-transform: capitalize
+	padding: 14px 0
+	width: 280px
+	border-radius: 4px
+	text-align: center
+	color: #ffffff
+	background-color: $accent
+	
+
+.img-wrap
+	overflow: hidden
+	img
+		width: 100%
+
+section.first
+	padding: 0
+	min-height: 100vh
+	display: flex
+	align-items: center
+	text-align: center
+	.my-photo
+		width: 340px
+		height: 340px
+		border-radius: 100%
+	.name
+		margin-top: 36px
+	.button
+		margin-top: 20px
+
+	
 
 @import "media" 
