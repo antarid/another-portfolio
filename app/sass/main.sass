@@ -64,7 +64,6 @@ a.button
 		background-color: $accent
 		opacity: 0.7
 	
-
 .img-wrap
 	overflow: hidden
 	img
@@ -85,6 +84,68 @@ section.first
 	.button
 		margin-top: 20px
 
-	
+section.second
+	.container
+		display: block
+	.table
+		margin-top: 16px
+		&-item
+			padding: 10px 0
+			position: relative
+			&:before
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 1px
+				background-color: #D2D9E2
+				content: ""
+			&.active
+				.table-item-content
+					display: block
+				.table-item-title
+					color: #000000
+				.table-item-control
+					transform: rotate(45deg) 
+					&:before, &:after
+						background-color: #000000
+			&-head
+				display: flex
+				justify-content: space-between
+				align-items: center
+			&-control
+				width: 16px
+				height: 16px
+				cursor: pointer
+				position: relative
+				transition: all .3s ease
+				&:before, &:after
+					position: absolute
+					background-color: $accent
+					content: ""
+				&:before	
+					top: 0
+					left: 7px
+					width: 2px
+					height: 16px
+				&:after
+					top: 7px
+					left: 0
+					width: 16px
+					height: 2px
+			&-content
+				display: none
+				font-size: 14px
+				line-height: 20px
+				margin-top: 10px
+			&-title
+				color: $accent
+				text-transform: capitalize
+				font-family: $header-font
+				font-weight: 800
+				font-size: 18px
+				line-height: 24px
+			&-content
+				max-width: 520px
 
 @import "media" 
