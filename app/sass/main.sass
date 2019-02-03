@@ -22,7 +22,9 @@ section
 	width: 100%
 	display: flex
 	justify-content: center
-	padding: 100px 0	
+	padding: 100px 0
+	h2
+		text-align: center	
 	.description
 		margin-top: 8px
 		text-align: center			
@@ -64,7 +66,7 @@ section
 			&:active
 				color: $dark-accent
 
-a.button
+.button
 	font-size: 18px
 	line-height: 24px
 	font-family: $header-font
@@ -79,6 +81,7 @@ a.button
 	background-color: $accent
 	transition: all .2s ease
 	&:hover
+		color: #ffffff
 		background-color: $hover
 	&:active
 		background-color: $accent
@@ -105,12 +108,17 @@ section.first
 		margin-top: 20px
 
 section.second
+	h2
+		text-align: left
 	.container
 		display: block
 	.table
 		margin-top: 16px
+		.table-item-head:hover + .table-item-content
+			max-height: 500px
+			opacity: 1
+			transition: max-height 3s, opacity  .3s
 		&-item
-			padding: 10px 0
 			position: relative
 			&:before
 				position: absolute
@@ -120,19 +128,21 @@ section.second
 				height: 1px
 				background-color: #D2D9E2
 				content: ""
-			&.active
-				.table-item-content
-					display: block
-				.table-item-title
-					color: #000000
-				.table-item-control
-					transform: rotate(45deg) 
-					&:before, &:after
-						background-color: #000000
+				
 			&-head
 				display: flex
 				justify-content: space-between
 				align-items: center
+				padding: 10px 0
+				cursor: pointer
+				&:hover
+					.table-item-title
+						color: #000000
+					.table-item-control
+						transform: rotate(45deg) 
+						&:before, &:after
+							background-color: #000000
+			
 			&-control
 				width: 16px
 				height: 16px
@@ -154,8 +164,11 @@ section.second
 					width: 16px
 					height: 2px
 			&-content
-				display: none
-				margin-top: 10px
+				max-height: 0
+				opacity: 0
+				padding-bottom: 10px
+				transition: all .3s ease
+
 			&-title
 				color: $accent
 				text-transform: capitalize
@@ -163,6 +176,7 @@ section.second
 				font-weight: 800
 				font-size: 18px
 				line-height: 24px
+				transition: all .1s ease
 			&-content
 				max-width: 520px
 
@@ -212,4 +226,121 @@ section.portfolio
 				border: 1px solid $dark-accent
 		&-description
 			max-width: 520px
+
+section.contacts
+	.icons
+		display: flex
+		margin-top: 16px
+		.icon
+			position: relative
+			margin: 0 8px
+			height: 48px
+			width: 48px
+			border-radius: 100%
+			font-size: 20px
+			display: flex
+			align-items: center
+			justify-content: center
+			color: #ffffff
+			&:after
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 100%
+				border-radius: 100%
+				background-color: #000000
+				opacity: 0
+				content: ""
+				z-index: 1
+				transition: all .3s ease
+			i
+				z-index: 10
+			&:hover
+				&:after
+					opacity: .2
+			&:active
+				&:after
+					opacity: 0
+			&.facebook
+				background-color: #395A99
+			&.twitter
+				background-color: #51ADEF
+			&.telegram
+				background-color: #2CA5E0
+	form
+		margin-top: 24px
+		width: 100%
+		display: flex
+		flex-direction: column
+		::placeholder
+			font-family: $sans-serif-font
+			font-size: 16px
+			line-height: 20px
+		textarea
+			resize: none
+			height: 136px
+		input, textarea
+			font-family: $sans-serif-font
+			margin-top: 16px
+			padding: 
+				top: 10px
+				bottom: 10px
+				left: 12px
+			border: 1px solid #D2D9E2
+			border-radius: 4px
+			outline: none
+			transition: all .1s ease
+		input:focus, textarea:focus
+			border-color: $accent
+		.input-file-wrap
+			margin-top: 20px
+			position: relative
+			z-index: 1
+			&:hover
+				div
+					color: #000000
+			&:active
+				div
+					color: rgba($accent, .7)
+			input
+				border: none
+				margin: 0
+				box-sizing: border-box
+				width: 100%
+				opacity: 0
+				z-index: 100
+				cursor: pointer
+			div
+				font-family: $sans-serif-font
+				border: 1px solid #D2D9E2
+				border-radius: 4px
+				position: absolute
+				top: 0
+				left: 0
+				width: calc(100% - 2px)
+				height: 100%
+				display: flex
+				align-items: center
+				justify-content: center
+				color: $accent
+				font-size: 16px
+				line-height: 20px
+				z-index: -1
+				transition: all .3s ease
+		.first-line
+			display: flex
+			justify-content: space-between
+			input
+				box-sizing: border-box
+				width: 100%
+				margin-left: 10px
+				margin-right: 10px
+				&:first-child
+					margin-left: 0
+				&:last-child
+					margin-right: 0
+		input.button
+			width: 100%
+			padding: 14px 0
 @import "media" 
